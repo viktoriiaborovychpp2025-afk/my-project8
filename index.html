@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Спокій розуму — простір для вашого спокою та самопідтримки.">
+  <title>Спокій розуму</title>
+  
+  <!-- Підключення шрифту Google Sans -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+    body {
+      font-family: 'Google Sans', Arial, sans-serif;
+    }
+  </style>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Підключення іконкового шрифту FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Підключення основних стилів проєкту -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Посилання для пропуску навігації (WCAG 2.4.1) -->
+  <a class="visually-hidden" href="#main-content">Перейти до основного вмісту</a>
+
+  <aside class="emergency-banner" aria-label="Екстрена допомога">
+    <div class="container emergency-banner__inner">
+      <span>Кризова підтримка та прямий зв'язок:</span>
+      <a class="emergency-banner__link" href="tel:103">Телефонуй 103</a>
+    </div>
+  </aside>
+
+  <header class="sticky top-0 z-50 w-full border-b border-[#E6E5E0] bg-[#F2F1ED] text-[#000000]">
+    <div class="mx-auto flex min-h-[56px] max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:min-h-[72px] lg:flex-nowrap lg:px-8">
+      <a
+        href="#main-content"
+        class="inline-flex items-center gap-3 rounded-2xs p-1 transition-opacity hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9DB5C6]"
+        aria-label="Спокій розуму — на головну сторінку"
+      >
+        <img src="assets/icons/logo.svg" alt="" class="h-9 w-9 object-contain" aria-hidden="true">
+        <span class="text-lg font-semibold tracking-tight text-[#000000]">Спокій розуму</span>
+      </a>
+
+      <button
+        type="button"
+        id="menu-toggle"
+        class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-2xs p-2 transition-colors transition-shadow duration-200 hover:bg-[#E6E4DF] hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5F806E] lg:hidden"
+        aria-label="Відкрити меню"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <nav
+        class="hidden w-full flex-col gap-3 lg:flex lg:w-auto lg:flex-1 lg:flex-row lg:items-center lg:justify-center lg:gap-8"
+        id="primary-navigation"
+        aria-label="Основна навігація"
+      >
+        <a class="rounded-2xs py-2 transition-colors hover:text-[#9DB5C6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9DB5C6]" href="#benefits">Переваги</a>
+        <a class="rounded-2xs py-2 transition-colors hover:text-[#9DB5C6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9DB5C6]" href="#tools">Послуги</a>
+        <a class="rounded-2xs py-2 transition-colors hover:text-[#9DB5C6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9DB5C6]" href="#about">Про нас</a>
+
+        <div class="practice-dropdown relative">
+          <button
+            type="button"
+            id="practice-menu-toggle"
+            class="inline-flex min-h-[44px] items-center gap-2 rounded-2xs py-2 transition-colors transition-shadow duration-200 hover:text-[#9DB5C6] hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#5F806E]"
+            aria-expanded="false"
+            aria-controls="practice-menu"
+          >
+            Інструменти
+            <i class="fa-solid fa-chevron-down practice-chevron text-xs text-[#5F6668] transition-transform" aria-hidden="true"></i>
+          </button>
+          <ul
+            class="practice-menu w-full rounded-xl bg-white p-2 shadow-md md:w-80 md:p-3"
+            id="practice-menu"
+            aria-labelledby="practice-menu-toggle"
+          >
+            <li>
+              <a class="practice-menu__link" href="#tool-breathing">
+                <i class="fa-solid fa-wind" aria-hidden="true"></i>
+                <span>Дихальна вправа</span>
+              </a>
+            </li>
+            <li>
+              <a class="practice-menu__link" href="#tool-audio">
+                <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                <span>Аудіо-релакс</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <a class="rounded-2xs py-2 transition-colors hover:text-[#9DB5C6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9DB5C6]" href="#support">Допомога</a>
+        <a class="button button--small transition-colors transition-shadow duration-200 hover:!bg-[#9DB5C6] hover:!border-[#9DB5C6] hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5F806E]" href="#mood">Почати</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page" id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__content">
+        <div class="hero__text">
+          <p class="eyebrow">Спокій розуму</p>
+          <h1 id="hero-title">Простір для вашого спокою та самопідтримки</h1>
+          <p class="hero__description">
+            Розкажіть, що відчуваєте, і отримайте швидку вправу для самопочуття: дихання або приємні звуки.
+          </p>
+          <a class="button transition-colors transition-shadow duration-200 hover:!bg-[#9DB5C6] hover:!border-[#9DB5C6] hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5F806E]" href="#mood">Почати <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero__visual">
+          <img
+            src="assets/images/hero_bg.jpg"
+            alt="Спокійний природний краєвид"
+            fetchpriority="high">
+        </div>
+      </div>
+    </section>
+
+    <section class="mood section" id="mood" aria-labelledby="mood-title">
+      <div class="container">
+        <div class="section__heading">
+          <h2 id="mood-title">Інтерактивний трекер емоційного стану («тут і зараз»)</h2>
+          <p>Персоналізовані рекомендації — підбір вправ відповідно до обраного емоційного стану.</p>
+        </div>
+
+        <ul class="mood__options !grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4" role="radiogroup" aria-label="Оберіть свій стан">
+          <li>
+            <button class="mood-card transition-colors transition-shadow duration-200 hover:!bg-[#E8EAE6] hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5F806E]" type="button" role="radio" aria-checked="true" tabindex="0" data-emotion="anxiety">
+              <span class="mood-card__icon" aria-hidden="true">☻</span>
+              <span class="mood-card__content">
+                <span class="mood-card__title">Тривога</span>
+                <span class="mood-card__description">Поточний настрій або емоція</span>
+              </span>
+              <span class="mood-card__check" aria-hidden="true">✓</span>
+            </button>
+          </li>
+          <li>
+            <button class="mood-card transition-colors transition-shadow duration-200 hover:!bg-[#E8EAE6] hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5F806E]" type="button" role="radio" aria-checked="false" tabindex="-1" data-emotion="stress">
+              <span class="mood-card__icon" aria-hidden="true">♧</span>
+              <span class="mood-card__content">
+                <span class="mood-card__title">Стрес</span>
+                <span class="mood-card__description">Поточний настрій або емоція</span>
+              </span>
+              <span class="mood-card__check" aria-hidden="true">✓</span>
+            </button>
+          </li>
+          <li>
+            <button class="mood-card transition-colors transition-shadow duration-200 hover:!bg-[#E8EAE6] hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5F806E]" type="button" role="radio" aria-checked="false" tabindex="-1" data-emotion="fatigue">
+              <span class="mood-card__icon" aria-hidden="true">♡</span>
+              <span class="mood-card__content">
+                <span class="mood-card__title">Втома</span>
+                <span class="mood-card__description">Поточний настрій або емоція</span>
+              </span>
+              <span class="mood-card__check" aria-hidden="true">✓</span>
+            </button>
+          </li>
+          <li>
+            <button class="mood-card transition-colors transition-shadow duration-200 hover:!bg-[#E8EAE6] hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5F806E]" type="button" role="radio" aria-checked="false" tabindex="-1" data-emotion="sadness">
+              <span class="mood-card__icon" aria-hidden="true">ⓘ</span>
+              <span class="mood-card__content">
+                <span class="mood-card__title">Смуток</span>
+                <span class="mood-card__description">Поточний настрій або емоція</span>
+              </span>
+              <span class="mood-card__check" aria-hidden="true">✓</span>
+            </button>
+          </li>
+        </ul>
+
+        <section class="recommendations" aria-labelledby="recommendations-title">
+          <div class="recommendations__heading">
+            <div class="recommendations__state">
+              <span class="mood-card__icon" aria-hidden="true">☻</span>
+              <h3 id="recommendations-title" aria-live="polite">Тривога</h3>
+            </div>
+            <span class="recommendations__badge"><span aria-hidden="true">✓</span> Вибрано</span>
+          </div>
+          <p class="recommendations__description" id="recommendation-description" aria-live="polite">
+            Автоматичний підбір вправ із візуальним анімованим індикатором фаз дихання (вдих/видих) та таймером для правильного дотримання ритму.
+          </p>
+          <button
+            class="button button--small transition-colors transition-shadow duration-200 hover:!bg-[#9DB5C6] hover:!border-[#9DB5C6] hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5F806E]"
+            id="recommendation-action"
+            type="button"
+            data-practice="breathing"
+            aria-label="Почати: дихальна вправа"
+            aria-describedby="recommendation-description"
+          >
+            Почати <span aria-hidden="true">→</span>
+          </button>
+        </section>
+      </div>
+    </section>
+
+    <section class="tools section" id="tools" aria-labelledby="tools-title">
+      <div class="container">
+        <div class="section__heading">
+          <p class="eyebrow">Спокій розуму</p>
+          <h2 id="tools-title">Послуги</h2>
+          <p>Динамічні дихальні вправи та сеанси аудіо-релаксу.</p>
+        </div>
+
+        <ul class="tools__grid grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+          <li>
+            <article class="tool-card tool-card--breathing" id="tool-breathing" aria-labelledby="tool-breath-title">
+              <header class="tool-card__header">
+                <span class="tool-card__icon practice-card__icon">
+                  <img src="assets/icons/breath%20icon%20.svg" alt="" aria-hidden="true">
+                </span>
+                <div class="tool-card__heading">
+                  <h3 id="tool-breath-title">Дихальна вправа</h3>
+                  <span class="tool-card__duration"><span aria-hidden="true">◷</span> 4 хв</span>
+                </div>
+              </header>
+              <p class="tool-card__recommendation" id="breathing-recommendation" role="status">Рекомендовано для обраного стану</p>
+              <p class="tool-card__description">Автоматичний підбір вправ із візуальним анімованим індикатором фаз дихання (вдих/видих) та таймером для правильного дотримання ритму.</p>
+
+              <div class="breathing-panel">
+                <div class="breathing-panel__meta">
+                  <span>Фаза<strong id="breathing-current-phase">Вдих</strong></span>
+                  <span>Таймер<strong id="breathing-timer" aria-live="off">4:00</strong></span>
+                </div>
+                <div class="breathing-panel__actions">
+                  <button class="tool-button tool-button--primary transition-colors transition-shadow duration-200 enabled:hover:!bg-[#9DB5C6] enabled:hover:!border-[#9DB5C6] enabled:hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5F806E]" id="breathing-start" type="button" aria-label="Почати дихальну вправу">Почати</button>
+                  <button class="tool-button transition-colors transition-shadow duration-200 enabled:hover:!bg-[#E6E4DF] enabled:hover:!border-[#9EAC9C] enabled:hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5F806E]" id="breathing-pause" type="button" disabled aria-label="Пауза дихальної вправи">Пауза</button>
+                </div>
+                <ul class="breathing-phases" aria-label="Фази дихальної вправи">
+                  <li class="breathing-phases__item breathing-phases__item--active">
+                    <span>Вдих</span><strong data-phase-seconds="4">4 сек</strong>
+                  </li>
+                  <li class="breathing-phases__item">
+                    <span>Затримка</span><strong data-phase-seconds="2">2 сек</strong>
+                  </li>
+                  <li class="breathing-phases__item">
+                    <span>Видих</span><strong data-phase-seconds="6">6 сек</strong>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="tool-card tool-card--audio" id="tool-audio" aria-labelledby="tool-audio-title">
+              <header class="tool-card__header">
+                <span class="tool-card__icon practice-card__icon">
+                  <img src="assets/icons/Audio%20Icon%20.svg" alt="" aria-hidden="true">
+                </span>
+                <div class="tool-card__heading">
+                  <h3 id="tool-audio-title">Аудіо-релакс</h3>
+                  <span class="tool-card__duration"><span aria-hidden="true">◷</span> 10 хв</span>
+                </div>
+              </header>
+              <p class="tool-card__recommendation" id="audio-recommendation" role="status" hidden>Рекомендовано для обраного стану</p>
+              <p class="tool-card__description">Сеанси аудіо-релаксу зі зручним плеєром (керування відтворенням, пауза, гучність) для зняття емоційного напруження.</p>
+
+              <div class="audio-panel">
+                <div class="audio-panel__status">
+                  <span id="audio-status" aria-live="polite">Готово до прослуховування</span>
+                  <span id="audio-time">0:00 / 10:00</span>
+                </div>
+                <label class="visually-hidden" for="audio-progress">Прогрес аудіо</label>
+                <input class="audio-panel__progress" id="audio-progress" type="range" min="0" max="600" value="0">
+                <div class="audio-panel__controls">
+                  <div class="audio-panel__actions">
+                    <button class="tool-button tool-button--audio transition-colors transition-shadow duration-200 enabled:hover:!bg-[#9DB5C6] enabled:hover:!border-[#9DB5C6] enabled:hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5F806E]" id="audio-start" type="button" aria-label="Слухати аудіо-релакс">
+                      <span aria-hidden="true">▶</span> <span id="audio-start-label">Слухати</span>
+                    </button>
+                    <button class="tool-button transition-colors transition-shadow duration-200 enabled:hover:!bg-[#E6E4DF] enabled:hover:!border-[#9EAC9C] enabled:hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5F806E]" id="audio-pause" type="button" disabled aria-label="Пауза аудіо-релаксу">
+                      <span aria-hidden="true">Ⅱ</span> Пауза
+                    </button>
+                  </div>
+                  <div class="audio-panel__volume">
+                    <span aria-hidden="true">◖))</span>
+                    <label id="audio-volume-label" for="audio-volume">Гучність</label>
+                    <input id="audio-volume" type="range" min="0" max="100" value="60" aria-labelledby="audio-volume-label">
+                  </div>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+        <figure class="tools__video">
+          <div class="tools__video-frame">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/XSvSvfmohX0"
+              title="Відео YouTube"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="benefits section" id="benefits" aria-labelledby="benefits-title">
+      <div class="container">
+        <div class="section__heading">
+          <p class="eyebrow">Спокій розуму</p>
+          <h2 id="benefits-title">Переваги</h2>
+          <p>Мінімум кроків — отримання рекомендації за декілька натискань.</p>
+        </div>
+
+        <ul class="benefits__grid !grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-3">
+          <li>
+            <article class="benefit-card">
+              <span class="benefit-card__number" aria-hidden="true">01</span>
+              <h3>Мінімум кроків</h3>
+              <p>Мінімум кроків — отримання рекомендації за декілька натискань.</p>
+            </article>
+          </li>
+          <li>
+            <article class="benefit-card">
+              <span class="benefit-card__number" aria-hidden="true">02</span>
+              <h3>Швидка самодопомога</h3>
+              <p>Можливість швидко скористатися вправою для покращення самопочуття.</p>
+            </article>
+          </li>
+          <li>
+            <article class="benefit-card" id="privacy">
+              <span class="benefit-card__number" aria-hidden="true">03</span>
+              <h3>Без реєстрації</h3>
+              <p>Доступ до функцій без створення облікового запису.</p>
+            </article>
+          </li>
+          <li>
+            <article class="benefit-card">
+              <span class="benefit-card__number" aria-hidden="true">04</span>
+              <h3>Простота використання</h3>
+              <p>Зрозуміла навігація та мінімум зайвих дій.</p>
+            </article>
+          </li>
+          <li>
+            <article class="benefit-card">
+              <span class="benefit-card__number" aria-hidden="true">05</span>
+              <h3>Персоналізовані рекомендації</h3>
+              <p>Підбір вправ відповідно до обраного емоційного стану.</p>
+            </article>
+          </li>
+        </ul>
+        <p class="benefits__privacy">
+          <span aria-hidden="true">◈</span>
+          Ми не караємо за пропущені дні та не надсилаємо настирливих сповіщень.
+        </p>
+      </div>
+    </section>
+
+    <section class="testimonials section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section__heading">
+          <p class="eyebrow">Спокій розуму</p>
+          <h2 id="about-title">Про нас: Чому «Спокій розуму»?</h2>
+        </div>
+        <ul class="testimonials__grid !grid-cols-1">
+          <li>
+            <figure class="testimonial-card">
+              <blockquote>Коли охоплює тривога чи виснаження, найважче — знайти сили на довгі статті, реєстрації чи пошук відповідей. У такі моменти потрібна не теорія і не виснажливий аналіз, а миттєва підтримка.</blockquote>
+              <figcaption>Спокій розуму</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="testimonial-card">
+              <blockquote>Ми створили «Спокій розуму», щоб дати вам безпечний простір без тиску, оцінок і складних анкет. Ми не ставимо діагнозів і не замінюємо терапію — наша мета полягає у швидкій та доступній самодопомозі тут і зараз.</blockquote>
+              <figcaption>Спокій розуму</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="testimonial-card">
+              <blockquote>Все працює максимально просто: ви обираєте свій поточний стан за 1–2 тапи, а сервіс одразу пропонує коротку дихальну вправу чи аудіо-релаксацію. Нам можна довіряти, адже ми поважаємо вашу приватність: ваші дані залишаються тільки на вашому пристрої, а користування повністю анонімне. Ми не караємо за пропущені дні та не надсилаємо настирливих сповіщень. Це ваш особистий інструмент для відновлення сил — тоді, коли це справді необхідно.</blockquote>
+              <figcaption>Спокій розуму</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="emergency section" id="support" aria-labelledby="support-title">
+      <div class="container emergency__inner">
+        <div class="emergency__content">
+          <h2 class="emergency__title" id="support-title">
+            <i class="fas fa-exclamation-triangle icon" aria-hidden="true"></i>
+            Кризова підтримка та прямий зв'язок
+          </h2>
+          <p class="emergency__description">
+            Швидкий доступ до безкоштовних гарячих ліній допомоги України та посилання для звернення до фахівців.
+          </p>
+          <div class="emergency__actions">
+            <a class="button transition-colors transition-shadow duration-200 hover:!bg-[#9DB5C6] hover:!border-[#9DB5C6] hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5F806E]" href="#mood">Почати</a>
+            <a class="emergency__action emergency__action--phone transition-colors transition-shadow duration-200 hover:!bg-[#F2F1ED] hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5F806E]" href="tel:103" aria-label="Зателефонувати до швидкої медичної допомоги за номером 103">
+              <i class="fas fa-phone-alt icon" aria-hidden="true"></i>
+              Екстрена допомога: 103
+            </a>
+          </div>
+          <p class="emergency__note">
+            Ми не ставимо діагнозів і не замінюємо терапію — наша мета полягає у швидкій та доступній самодопомозі тут і зараз.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="border-t border-[#E6E5E0] bg-[#F2F1ED] text-[#000000]">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-10 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-10 lg:px-8">
+      <section aria-labelledby="footer-brand-title">
+        <a class="inline-flex items-center gap-3 rounded-2xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9DB5C6]" href="#main-content" aria-label="Спокій розуму — на початок сторінки">
+          <img class="h-9 w-9 object-contain" src="assets/icons/logo.svg" alt="" aria-hidden="true">
+          <span id="footer-brand-title" class="text-base font-semibold">Спокій розуму</span>
+        </a>
+        <p class="mt-4 max-w-xs text-sm leading-6 text-[#5F6668]">
+          Безпечний простір без тиску, оцінок і складних анкет.
+        </p>
+      </section>
+
+      <nav aria-labelledby="footer-navigation-title">
+        <h2 id="footer-navigation-title" class="text-sm font-semibold text-[#000000]">Навігація</h2>
+        <ul class="mt-4 space-y-3 text-sm text-[#5F6668]">
+          <li><a class="rounded-2xs transition-colors hover:text-[#9DB5C6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9DB5C6]" href="#main-content">Головна</a></li>
+          <li><a class="rounded-2xs transition-colors hover:text-[#9DB5C6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9DB5C6]" href="#benefits">Переваги</a></li>
+          <li><a class="rounded-2xs transition-colors hover:text-[#9DB5C6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9DB5C6]" href="#about">Про нас</a></li>
+          <li><a class="rounded-2xs transition-colors hover:text-[#9DB5C6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9DB5C6]" href="#privacy">Приватність</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-resources-title">
+        <h2 id="footer-resources-title" class="text-sm font-semibold text-[#000000]">Інструменти</h2>
+        <ul class="mt-4 space-y-3 text-sm text-[#5F6668]">
+          <li><a class="rounded-2xs transition-colors hover:text-[#9DB5C6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9DB5C6]" href="#tools">Практичні інструменти</a></li>
+          <li><a class="rounded-2xs transition-colors hover:text-[#9DB5C6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9DB5C6]" href="#tool-breathing">Дихальна вправа</a></li>
+          <li><a class="rounded-2xs transition-colors hover:text-[#9DB5C6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9DB5C6]" href="#tool-audio">Аудіо-релакс</a></li>
+        </ul>
+      </nav>
+
+      <section aria-labelledby="footer-contact-title">
+        <h2 id="footer-contact-title" class="text-sm font-semibold text-[#000000]">Контакти й допомога</h2>
+        <ul class="mt-4 space-y-3 text-sm text-[#5F6668]">
+          <li><a class="rounded-2xs transition-colors hover:text-[#9DB5C6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9DB5C6]" href="#support">Екстрена підтримка — 103</a></li>
+        </ul>
+        <figure class="footer-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5146.478152171394!2d24.0175074!3d49.8379652!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add7039eca3f9%3A0x6eb72336b867b4ba!2z0J_RgdC40YXQvtC70L7Qs9GW0YfQvdCwINGB0YLRg9C00ZbRjyAi0KbQtdC90YLRgCI!5e0!3m2!1suk!2sua!4v1793728350678!5m2!1suk!2sua"
+            title="Карта Google Maps із розташуванням у Львові"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <figcaption class="visually-hidden">Інтерактивна карта Google Maps</figcaption>
+        </figure>
+      </section>
+
+      <div class="flex flex-col gap-4 border-t border-[#E6E5E0] pt-5 text-sm text-[#5F6668] md:col-span-2 md:flex-row md:items-center md:justify-between lg:col-span-4">
+        <p>Спокій розуму</p>
+        <nav class="flex flex-wrap gap-x-6 gap-y-2" aria-label="Додаткова навігація">
+          <a class="rounded-2xs transition-colors hover:text-[#9DB5C6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9DB5C6]" href="#privacy">Приватність</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  <script src="js/mood-selector.js" defer></script>
+  <script src="js/practice-tools.js" defer></script>
+  <script src="js/header.js" defer></script>
+</body>
+</html>
